@@ -49,7 +49,6 @@ Licensed under [GPL-3.0](./LICENSE).
 
 
 <!-- TAGNET README FOOTER — start -->
----
 
 <div align="center">
 
