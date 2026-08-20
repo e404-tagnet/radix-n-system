@@ -1,0 +1,162 @@
+
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 0; }
+  .pm { font-family: var(--font-mono); color: var(--color-text-primary); padding: 1.5rem 0; }
+  .doc-title { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 4px; }
+  .doc-name { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+  .doc-sub { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+  .meta-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 1.5rem; border-top: 1px solid var(--color-border-tertiary); border-bottom: 1px solid var(--color-border-tertiary); padding: 10px 0; }
+  .meta-item { font-size: 12px; }
+  .meta-label { color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .08em; font-size: 10px; display: block; }
+  .meta-val { color: var(--color-text-primary); font-weight: 500; }
+  .section { margin-bottom: 1.5rem; }
+  .sec-head { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 8px; border-bottom: 1px solid var(--color-border-tertiary); padding-bottom: 4px; }
+  .phase { margin-bottom: 12px; }
+  .phase-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); display: flex; align-items: baseline; gap: 8px; }
+  .phase-num { font-size: 10px; color: var(--color-text-tertiary); }
+  .phase-body { font-size: 12px; color: var(--color-text-secondary); line-height: 1.65; margin-left: 0; margin-top: 4px; }
+  .item { display: flex; gap: 8px; margin-bottom: 3px; font-size: 12px; color: var(--color-text-secondary); }
+  .bullet { color: var(--color-text-tertiary); flex-shrink: 0; }
+  .tag { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 4px; font-family: var(--font-mono); font-weight: 500; margin-left: 6px; vertical-align: middle; }
+  .tag-r { background: var(--color-background-danger); color: var(--color-text-danger); }
+  .tag-a { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .tag-g { background: var(--color-background-success); color: var(--color-text-success); }
+  .tag-b { background: var(--color-background-info); color: var(--color-text-info); }
+  .constraint-row { display: flex; gap: 8px; align-items: flex-start; font-size: 12px; margin-bottom: 6px; }
+  .c-label { font-size: 10px; font-weight: 500; min-width: 64px; padding-top: 1px; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .07em; }
+  .c-text { color: var(--color-text-secondary); line-height: 1.5; }
+  .deliverable { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 8px; }
+  .d-num { font-size: 10px; color: var(--color-text-tertiary); min-width: 18px; padding-top: 2px; }
+  .d-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .d-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.5; }
+  .divider { border: none; border-top: 1px solid var(--color-border-tertiary); margin: 16px 0; }
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .risk-card { border: 1px solid var(--color-border-tertiary); border-radius: 8px; padding: 8px 10px; }
+  .risk-title { font-size: 11px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+  .risk-body { font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; }
+  .open-q { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 5px; line-height: 1.6; cursor: pointer; padding: 4px 0; border-bottom: 1px solid var(--color-border-tertiary); }
+  .open-q:last-child { border-bottom: none; }
+  .open-q:hover { color: var(--color-text-primary); }
+  .footnote { font-size: 11px; color: var(--color-text-tertiary); margin-top: 1.5rem; border-top: 1px solid var(--color-border-tertiary); padding-top: 8px; font-style: italic; }
+</style>
+<div class="pm">
+  <div class="doc-title">Project Initiation Document — v0.1 Draft</div>
+  <div class="doc-name">AXON — Compute-First Programming Language</div>
+  <div class="doc-sub">A language whose semantics derive from machine architecture, not human metaphor.</div>
+
+  <div class="meta-row">
+    <div class="meta-item"><span class="meta-label">Status</span><span class="meta-val">Pre-Discovery</span></div>
+    <div class="meta-item"><span class="meta-label">Phase</span><span class="meta-val">0 — Framing</span></div>
+    <div class="meta-item"><span class="meta-label">Owner</span><span class="meta-val">TBD</span></div>
+    <div class="meta-item"><span class="meta-label">Last revised</span><span class="meta-val">2026-03-16</span></div>
+    <div class="meta-item"><span class="meta-label">Horizon</span><span class="meta-val">18–36 months (research-grade)</span></div>
+  </div>
+
+  <!-- PROBLEM STATEMENT -->
+  <div class="section">
+    <div class="sec-head">Problem statement</div>
+    <div class="item"><span class="bullet">›</span><span>All mainstream languages encode human cognitive habits: named variables, linear text, sequential metaphor, base-10 assumptions, natural-language syntax.</span></div>
+    <div class="item"><span class="bullet">›</span><span>The result: compilers spend enormous effort translating human-legible abstractions back into what the machine actually wants — registers, pipelines, memory hierarchies, instruction parallelism.</span></div>
+    <div class="item"><span class="bullet">›</span><span>Hypothesis: a language whose <em>primary</em> abstraction layer mirrors the machine's actual execution model could eliminate whole classes of translation overhead and expose optimisation space that no human would naturally write toward.</span></div>
+    <div class="item"><span class="bullet">›</span><span>Secondary hypothesis: a sufficiently disciplined human-interface layer can be <em>generated on top</em>, making the language practically usable without corrupting its foundations.</span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PHASES -->
+  <div class="section">
+    <div class="sec-head">Phases &amp; scope</div>
+
+    <div class="phase">
+      <div class="phase-title"><span class="phase-num">PHASE 0</span> Needs + constraint analysis <span class="tag tag-r">Blocker</span></div>
+      <div class="phase-body">Must complete before any design decisions. Defines what "compute-first" actually means in practice and surfaces inherited constraints that cannot be designed away.</div>
+      <div class="item" style="margin-top:6px"><span class="bullet">–</span><span>Survey existing compute-native work: LLVM IR, SPIR-V, WebAssembly, Forth, APL, J, Futhark, Halide, MLIR. What did they get right? Where did human-bias creep back in?</span></div>
+      <div class="item"><span class="bullet">–</span><span>Hardware landscape mapping: x86-64, ARM, RISC-V, GPU (CUDA/ROCm), neuromorphic (Intel Loihi, IBM TrueNorth), ternary (Setun lineage, experimental). Language must have a clear target or it designs for nothing.</span></div>
+      <div class="item"><span class="bullet">–</span><span>Define "maximising compute potential" with measurable criteria — throughput? latency? energy per operation? instruction-level parallelism exposure? Without this, the goal is unfalsifiable.</span></div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-title"><span class="phase-num">PHASE 1</span> Core compute model <span class="tag tag-a">Design</span></div>
+      <div class="phase-body">Define the language's fundamental unit of computation, not its syntax. Answer: what is a "thing" in this language — a signal, a tensor, a stream, a state transition?</div>
+      <div class="item" style="margin-top:6px"><span class="bullet">–</span><span>Execution model: dataflow graph vs. continuation-passing vs. SSA-native vs. actor model vs. hardware description logic</span></div>
+      <div class="item"><span class="bullet">–</span><span>Type system: should types encode physical constraints (bit width, memory location, cache tier, alignment) rather than semantic categories?</span></div>
+      <div class="item"><span class="bullet">–</span><span>Memory model: flat, hierarchical, ownership, capability-based — or let the machine dictate and surface that explicitly?</span></div>
+      <div class="item"><span class="bullet">–</span><span>Concurrency primitive: is parallelism a first-class citizen at the syntax level, not an afterthought library?</span></div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-title"><span class="phase-num">PHASE 2</span> Semantics + syntax <span class="tag tag-a">Design</span></div>
+      <div class="phase-body">Only once Phase 1 is stable. Syntax is the least important layer — it will change. Semantics are load-bearing and expensive to revise.</div>
+      <div class="item" style="margin-top:6px"><span class="bullet">–</span><span>Formal semantics first (operational or denotational). No ambiguity in what a program <em>means</em>.</span></div>
+      <div class="item"><span class="bullet">–</span><span>Surface syntax designed as a <em>view</em> over the semantic graph — not as the ground truth. Multiple syntaxes over the same IR are a feature, not a bug.</span></div>
+      <div class="item"><span class="bullet">–</span><span>Decide: is the canonical representation textual, binary, or graph-structured? Text is human bias — acknowledge that choice explicitly.</span></div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-title"><span class="phase-num">PHASE 3</span> Human interface layer <span class="tag tag-g">Integration</span></div>
+      <div class="phase-body">Built last, kept separate. The interface should be generatable — ideally by a tool or AI layer — without contaminating the core model.</div>
+      <div class="item" style="margin-top:6px"><span class="bullet">–</span><span>Readable notation: compact, dictionary-style, no prose keywords. Terse is correct here — APL/J aesthetics are closer to truth than Python's.</span></div>
+      <div class="item"><span class="bullet">–</span><span>Tooling: visualiser that shows the execution graph, not the text. Humans navigate graphs poorly via text.</span></div>
+      <div class="item"><span class="bullet">–</span><span>AI-assisted compilation: if the target is AI-generated code, the "human interface" may be natural language to IR — skip readable syntax entirely as a strategic option.</span></div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-title"><span class="phase-num">PHASE 4</span> Prototype runtime <span class="tag tag-b">Build</span></div>
+      <div class="phase-body">Interpreter or JIT on a single target first. Not production-ready — proof of semantic coherence and measurable performance delta vs. a compiled C baseline.</div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- DELIVERABLES -->
+  <div class="section">
+    <div class="sec-head">Deliverables — prioritised</div>
+    <div class="deliverable"><span class="d-num">D1</span><div><div class="d-name">Needs analysis doc</div><div class="d-desc">What problems is this solving. Measurable success criteria. Target hardware. Comparison against LLVM IR / MLIR / Wasm as the honest baseline.</div></div></div>
+    <div class="deliverable"><span class="d-num">D2</span><div><div class="d-name">Constraint register</div><div class="d-desc">Physical constraints (clock, memory bandwidth, instruction set), human constraints (who will ever use this and why), toolchain constraints (bootstrapping problem).</div></div></div>
+    <div class="deliverable"><span class="d-num">D3</span><div><div class="d-name">Execution model specification</div><div class="d-desc">Formal description of what a program <em>is</em> in this language — independent of any syntax. This is the intellectual core of the project.</div></div></div>
+    <div class="deliverable"><span class="d-num">D4</span><div><div class="d-name">Type system + memory model spec</div><div class="d-desc">Physical-property type system. Ownership or capability model. Cache-tier annotations.</div></div></div>
+    <div class="deliverable"><span class="d-num">D5</span><div><div class="d-name">Reference syntax (v0.1)</div><div class="d-desc">Minimal, terse, reversible — a notation for the IR. Not "the language". Subject to wholesale replacement.</div></div></div>
+    <div class="deliverable"><span class="d-num">D6</span><div><div class="d-name">Proof-of-concept interpreter</div><div class="d-desc">Single target (x86-64 or RISC-V). Benchmarked against equivalent C. The benchmark is the only thing that matters at this stage.</div></div></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- CONSTRAINTS -->
+  <div class="section">
+    <div class="sec-head">Constraint analysis</div>
+    <div class="constraint-row"><span class="c-label">Hard</span><span class="c-text">You still need a bootstrapping compiler — written in <em>something</em>. First implementation will be human-biased by necessity. This is the serpent eating its own tail and you cannot design your way out of it.</span></div>
+    <div class="constraint-row"><span class="c-label">Hard</span><span class="c-text">Binary hardware is a constraint, not a choice. The machine <em>is</em> human-designed. "Computer-first" means optimising within those constraints, not transcending them.</span></div>
+    <div class="constraint-row"><span class="c-label">Hard</span><span class="c-text">Without an ecosystem (libraries, tooling, community) adoption is zero. A perfect language no one uses is an academic paper. Decide upfront: research artefact or practical tool. Different designs.</span></div>
+    <div class="constraint-row"><span class="c-label">Structural</span><span class="c-text">MLIR and LLVM IR already exist and are already closer to machine representation than any high-level language. The honest question is: what would this language do that they don't?</span></div>
+    <div class="constraint-row"><span class="c-label">Structural</span><span class="c-text">Ternary is currently theoretical at scale. Designing for it now is speculative. Either commit to binary with a clean ternary migration path, or treat ternary as a separate research thread.</span></div>
+    <div class="constraint-row"><span class="c-label">Bias</span><span class="c-text">The very act of designing a language is a human act. "Computer-first" is a design <em>philosophy</em>, not an escape from human authorship. Name this honestly — the goal is minimising anthropocentric bias, not eliminating the designer.</span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- RISKS -->
+  <div class="section">
+    <div class="sec-head">Key risks</div>
+    <div class="risk-grid">
+      <div class="risk-card"><div class="risk-title">Scope drift <span class="tag tag-r">High</span></div><div class="risk-body">Without a fixed target architecture the design space is infinite. Lock hardware target in Phase 0 or the project never converges.</div></div>
+      <div class="risk-card"><div class="risk-title">Reinventing MLIR <span class="tag tag-a">Medium</span></div><div class="risk-body">MLIR is a multi-level IR with a pluggable dialect system. Due diligence required to show differentiation before building from scratch.</div></div>
+      <div class="risk-card"><div class="risk-title">No adoption path <span class="tag tag-r">High</span></div><div class="risk-body">If the human interface is left too late, the language will never be validated against real workloads. Phase 3 needs a usability MVP, not a perfect interface.</div></div>
+      <div class="risk-card"><div class="risk-title">Unfalsifiable goal <span class="tag tag-a">Medium</span></div><div class="risk-body">"Maximise computer potential" is not measurable. D1 must define specific, quantitative success criteria or every design decision becomes an argument.</div></div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- OPEN QUESTIONS -->
+  <div class="section">
+    <div class="sec-head">Open questions — need answers before Phase 1</div>
+    <div class="open-q" onclick="sendPrompt('What should the primary target architecture be for AXON — x86-64, RISC-V, GPU, or something else?')">① What is the primary target architecture? The answer shapes every design decision downstream. →</div>
+    <div class="open-q" onclick="sendPrompt('What is the measurable success criterion for AXON — throughput, latency, energy efficiency, or ILP exposure?')">② What does "maximising compute" mean in numbers? Throughput? Energy per FLOP? Instruction-level parallelism score? →</div>
+    <div class="open-q" onclick="sendPrompt('How does AXON differentiate from MLIR and LLVM IR, which already represent compute closer to the metal than any high-level language?')">③ How does this differentiate from MLIR / LLVM IR? This is the hardest question and must be answered honestly. →</div>
+    <div class="open-q" onclick="sendPrompt('Is AXON intended as a research artefact or a practical language? The design decisions are fundamentally different.')">④ Research artefact or practical tool? The answer determines whether Phase 3 matters or is optional. →</div>
+    <div class="open-q" onclick="sendPrompt('Should AXON target AI-generated code as its primary human interface, making readable syntax optional rather than core?')">⑤ Is AI the intended "human" interface? If code is generated by an LLM anyway, readable syntax becomes optional infrastructure. →</div>
+  </div>
+
+  <div class="footnote">Working title AXON — subject to change. Click any open question to continue the dialogue. All phase estimates assume a single experienced language designer; team size scales timelines.</div>
+</div>
