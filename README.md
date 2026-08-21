@@ -2,9 +2,8 @@
 <div align="center">
 
 [![License](https://img.shields.io/github/license/e404-tagnet/radix-n-system?color=313244&labelColor=11111b&label=License&style=flat-square)](https://github.com/e404-tagnet/radix-n-system/blob/main/LICENSE)
-[![Status](https://img.shields.io/badge/Status-experimental-fab387?labelColor=11111b&style=flat-square)](https://github.com/e404-tagnet/radix-n-system/pulse)
+[![Status](https://img.shields.io/badge/Status-stable-a6e3a1?labelColor=11111b&style=flat-square)](https://github.com/e404-tagnet/radix-n-system/pulse)
 [![Version](https://img.shields.io/github/v/release/e404-tagnet/radix-n-system?color=313244&labelColor=11111b&label=Version&style=flat-square)](https://github.com/e404-tagnet/radix-n-system/releases)
-[![Docs](https://img.shields.io/badge/Docs-HTML-89b4fa?labelColor=11111b&style=flat-square&logo=read-the-docs&logoColor=89b4fa)](./compute_first_language_pm_.html)
 [![Repo](https://img.shields.io/badge/Repo-radix-n-system-94e2d5?labelColor=11111b&style=flat-square&logo=github&logoColor=94e2d5)](https://github.com/e404-tagnet/radix-n-system)
 [![Tagnet](https://img.shields.io/badge/By-Tagnet-89dceb?labelColor=11111b&style=flat-square&logo=tag&logoColor=89dceb)](https://tagnet.dev)
 
@@ -46,7 +45,6 @@ Pre-discovery. No compiler, no formal semantics, no runtime yet. This is a resea
 ## License
 
 Licensed under [GPL-3.0](./LICENSE).
-
 
 <!-- TAGNET README FOOTER — start -->
 
